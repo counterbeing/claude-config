@@ -1,0 +1,140 @@
+{
+  "includeCoAuthoredBy": false,
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "Bash(fd:*)",
+      "Bash(grep:*)",
+      "Bash(rg:*)",
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(wc:*)",
+      "Bash(tree:*)",
+      "Bash(pwd:*)",
+      "Bash(which:*)",
+      "Bash(file:*)",
+      "Bash(stat:*)",
+      "Bash(du:*)",
+      "Bash(df:*)",
+      "Bash(git:status)",
+      "Bash(git:log)",
+      "Bash(git:diff)",
+      "Bash(git:branch)",
+      "Bash(git:remote)",
+      "Bash(git:show)",
+      "Bash(npm:list)",
+      "Bash(npm:outdated)",
+      "Bash(yarn:list)",
+      "Bash(pip:list)",
+      "Bash(pip:show)",
+      "Bash(node:*)",
+      "Bash(python:*)",
+      "Bash(python3:*)",
+      "Bash(tsc:*)",
+      "Bash(eslint:*)",
+      "Bash(prettier:*)",
+      "Bash(pytest:*)",
+      "Bash(jest:*)",
+      "Bash(uname:*)",
+      "Bash(whoami:*)",
+      "Bash(date:*)",
+      "Bash(ps:*)",
+      "Bash(top:*)",
+      "Bash(htop:*)",
+      "Bash(awk:*)",
+      "Bash(sed:*)",
+      "Bash(sort:*)",
+      "Bash(uniq:*)",
+      "Bash(cut:*)",
+      "Bash(tr:*)",
+      "Bash(curl:*)",
+      "Bash(wget:*)",
+      "Bash(ping:*)",
+      "Bash(nslookup:*)",
+      "Bash(dig:*)",
+      "Bash(docker:ps)",
+      "Bash(docker:images)",
+      "Bash(docker:logs)",
+      "Bash(docker-compose:ps)",
+      "Read(*)",
+      "LS(*)",
+      "Grep(*)",
+      "Search(*)",
+      "Glob(*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:api.github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:gist.githubusercontent.com)",
+      "WebFetch(domain:npmjs.com)",
+      "WebFetch(domain:registry.npmjs.org)",
+      "WebFetch(domain:pypi.org)",
+      "WebFetch(domain:docs.python.org)",
+      "WebFetch(domain:developer.mozilla.org)",
+      "WebFetch(domain:typescriptlang.org)",
+      "WebFetch(domain:nodejs.org)",
+      "WebFetch(domain:stackoverflow.com)",
+      "mcp__mcp-atlassian__jira_get_issue",
+      "Bash(gh pr diff:*)",
+      "mcp__Ref__ref_search_documentation",
+      "WebSearch",
+      "WebFetch(domain:developer.fullstory.com)",
+      "mcp__sonarqube__search_sonar_issues_in_projects",
+      "mcp__atlassian__jira_get_issue",
+      "Bash(git checkout:*)",
+      "mcp__atlassian__jira_get_transitions",
+      "Bash(npm test:*)",
+      "Bash(npm run lint:*)",
+      "Bash(gh api:*)",
+      "Bash(git pull:*)",
+      "Bash(gh run view:*)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Read(**/secrets/**)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Read(~/.ssh/**)",
+      "Read(~/.aws/**)",
+      "Read(./.envrc)",
+      "Bash(rm:-rf /*)",
+      "Bash(sudo:*)",
+      "Bash(su:*)"
+    ],
+    "defaultMode": "plan"
+  },
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/notify.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/stop-notification.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "pr-review-toolkit@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "beads@beads-marketplace": true
+  },
+  "alwaysThinkingEnabled": true
+}

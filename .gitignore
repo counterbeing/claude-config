@@ -1,0 +1,35 @@
+# Sensitive files
+.env
+.env.*
+
+# History and transcripts
+*.jsonl
+*.log
+
+# Per-project data (contains transcripts)
+projects/
+
+# Ephemeral/session data
+plans/
+todos/
+debug/
+cache/
+paste-cache/
+ide/
+session-env/
+shell-snapshots/
+file-history/
+
+# Analytics/telemetry
+statsig/
+telemetry/
+stats-cache.json
+
+# macOS
+.DS_Store
+
+# Nested .claude directory (if any)
+.claude/
+
+# Installed plugins (these are git repos)
+plugins/marketplaces/

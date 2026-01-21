@@ -1,0 +1,18 @@
+{
+  "claude-plugins-official": {
+    "source": {
+      "source": "github",
+      "repo": "anthropics/claude-plugins-official"
+    },
+    "installLocation": "/Users/corylogan/.claude/plugins/marketplaces/claude-plugins-official",
+    "lastUpdated": "2026-01-21T00:38:00.519Z"
+  },
+  "beads-marketplace": {
+    "source": {
+      "source": "github",
+      "repo": "steveyegge/beads"
+    },
+    "installLocation": "/Users/corylogan/.claude/plugins/marketplaces/beads-marketplace",
+    "lastUpdated": "2026-01-06T18:47:45.522Z"
+  }
+}

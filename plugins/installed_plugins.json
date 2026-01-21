@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "plugins": {
+    "ralph-wiggum@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/corylogan/.claude/plugins/cache/claude-plugins-official/ralph-wiggum/6703e9f512c5",
+        "version": "6703e9f512c5",
+        "installedAt": "2026-01-02T19:23:58.634Z",
+        "lastUpdated": "2026-01-06T23:17:26.832Z"
+      }
+    ],
+    "pr-review-toolkit@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/corylogan/.claude/plugins/cache/claude-plugins-official/pr-review-toolkit/96276205880a",
+        "version": "96276205880a",
+        "installedAt": "2026-01-02T19:33:35.632Z",
+        "lastUpdated": "2026-01-16T18:10:41.000Z"
+      }
+    ],
+    "code-review@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/corylogan/.claude/plugins/cache/claude-plugins-official/code-review/96276205880a",
+        "version": "96276205880a",
+        "installedAt": "2026-01-05T17:16:44.664Z",
+        "lastUpdated": "2026-01-16T18:10:41.195Z"
+      }
+    ],
+    "beads@beads-marketplace": [
+      {
+        "scope": "user",
+        "installPath": "/Users/corylogan/.claude/plugins/cache/beads-marketplace/beads/0.44.0",
+        "version": "0.44.0",
+        "installedAt": "2026-01-06T18:48:11.874Z",
+        "lastUpdated": "2026-01-06T18:48:11.874Z"
+      }
+    ]
+  }
+}
