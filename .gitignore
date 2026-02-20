@@ -33,3 +33,22 @@ stats-cache.json
 
 # Installed plugins (these are git repos)
 plugins/marketplaces/
+
+# Plugin state files (caches, local paths, test data)
+plugins/install-counts-cache.json
+plugins/config.json
+plugins/blocklist.json
+plugins/installed_plugins.json
+plugins/known_marketplaces.json
+
+# Personal backups
+backups/
+
+# Ephemeral task locks
+tasks/
+
+# Usage analytics
+usage-data/
+
+# Credentials
+.credentials.json

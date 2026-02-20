@@ -1,25 +1,33 @@
 # Review SonarQube issues for this project
 
-Review and fix SonarQube issues for the audit-logs-service project.
-
-## Project Configuration
-
-- **Project Key**: `snap-mobile_audit-logs-service_6a2fbb20-ace9-413f-a5a8-9d5a24a83016`
-- **Dashboard**: https://sonarqube.snap.app/dashboard?id=snap-mobile_audit-logs-service_6a2fbb20-ace9-413f-a5a8-9d5a24a83016
+Review and fix SonarQube issues for the current repository.
 
 ## Workflow
 
-### 1. Get current PR number
-First, determine the PR number if reviewing PR-specific issues:
+### 1. Discover SonarQube project
+Derive the repo name from the git remote, then find the matching SonarQube project:
+```bash
+git remote get-url origin
+```
+Extract the repo name (e.g., `fundraisers` from `git@github.com:snap-mobile/fundraisers.git`). Then search for the matching SonarQube project:
+```
+mcp__sonarqube__search_my_sonarqube_projects
+```
+Page through results if needed. Match by the project `name` field equaling the repo name. The matched project's `key` (format: `snap-mobile_<repo-name>_<uuid>`) is used for all subsequent queries.
+
+If no match is found, tell the user and stop.
+
+### 2. Get current PR number
+Determine the PR number if reviewing PR-specific issues:
 ```bash
 gh pr view --json number -q .number
 ```
 
-### 2. Query SonarQube issues
+### 3. Query SonarQube issues
 Use the MCP tool to fetch OPEN issues only. For PR-specific issues:
 ```
 mcp__sonarqube__search_sonar_issues_in_projects with:
-- projects: ["snap-mobile_audit-logs-service_6a2fbb20-ace9-413f-a5a8-9d5a24a83016"]
+- projects: ["<DISCOVERED_PROJECT_KEY>"]
 - pullRequestId: "<PR_NUMBER>"
 - ps: 100 (page size)
 ```
@@ -34,13 +42,9 @@ For main branch issues, omit the pullRequestId parameter.
 - `textRange.startLine` (line number)
 - `status` (filter to OPEN only)
 
-Ignore closed issues entirely. Example jq filter to trim the response:
-```bash
-# For processing locally or in scripts
-echo '$RESPONSE' | jq '[.issues[] | select(.status == "OPEN") | {key, rule, file: (.component | split(":")[1]), line: .textRange.startLine, message}]'
-```
+Ignore closed issues entirely.
 
-### 3. Filter and categorize
+### 4. Filter and categorize
 Categorize OPEN issues by:
 
 **Quick Wins (fix immediately):**
@@ -58,7 +62,7 @@ Categorize OPEN issues by:
 **False Positives (accept via MCP):**
 - S6698: Hardcoded secrets in docker-compose.yml or local dev configs
 
-### 4. Fix issues
+### 5. Fix issues
 Work through issues by category, starting with quick wins. Common fixes:
 
 **Readonly fields:**
@@ -88,7 +92,7 @@ HEALTHCHECK CMD wget --spider http://localhost/health
 HEALTHCHECK CMD ["sh", "-c", "wget --spider http://localhost/health"]
 ```
 
-### 5. Accept false positives
+### 6. Accept false positives
 Use MCP to mark false positives as accepted:
 ```
 mcp__sonarqube__change_sonar_issue_status with:
@@ -96,7 +100,7 @@ mcp__sonarqube__change_sonar_issue_status with:
 - status: ["accept"]
 ```
 
-### 6. Generated files
+### 7. Generated files
 If issues appear in generated code, ensure `sonar-project.properties` excludes them:
 ```properties
 sonar.exclusions=\

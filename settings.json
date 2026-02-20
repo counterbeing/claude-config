@@ -134,7 +134,9 @@
   "enabledPlugins": {
     "pr-review-toolkit@claude-plugins-official": true,
     "code-review@claude-plugins-official": true,
-    "beads@beads-marketplace": true
+    "beads@beads-marketplace": true,
+    "compound-engineering@every-marketplace": false
   },
-  "alwaysThinkingEnabled": true
+  "alwaysThinkingEnabled": true,
+  "skipDangerousModePermissionPrompt": true
 }
